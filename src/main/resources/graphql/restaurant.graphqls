@@ -1,0 +1,37 @@
+input RestaurantNameUpdating {
+    name: String!
+    price: Int!
+}
+
+type Article {
+    name : String!
+    address: String!
+}
+## input entrada datos, type salida de datos
+
+
+# queries
+extend type Query {
+    restaurants : [Article] # parentesis vacio si no tiene parametros
+}
+
+# mutaciones son para actualizar o crear
+extend type Mutation {
+    createArticle (articleCreation:ArticleCreation) : Article
+}
+
+## subscripcion (patron observador) te subscribes y te escupe
+
+## lo vemos a traves de graphiql
+## query {
+    ##restaurants {
+        ##name
+        ##address
+    ##}
+##}
+
+## me devuelve :
+##{"data":{"restaurants" : [{"name":"balamo","address":"avenida del mediterraneo 8"},
+        ##{"name":"rio bravo","address":"moliner 9"}]}}
+
+## implementacion java : graphql-java-kickstart (es para spring)
